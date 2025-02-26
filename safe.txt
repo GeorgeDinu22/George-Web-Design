@@ -1,0 +1,941 @@
+*{
+    margin: 0;
+}
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Poppins", serif;
+    background-color: black;
+}
+
+.header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    align-items: center;
+}
+
+.logo{
+    width: 185px;
+    font-weight: 700;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    color: white;
+}
+.navbar-drop{
+    width: 92%;
+    background-color: rgba(0, 8, 254, 0.5);
+    backdrop-filter: blur(5px);
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    height:0px;
+    overflow: hidden;
+    transform: translateX(-50%);
+    transition: all 500ms ease-in-out;
+    border-radius: 25px;
+    
+}
+.navbar-drop.active-nav{
+   height:150px;
+}
+.navbar-drop ul{
+    width: 100%;
+    padding: 0;
+}
+.navbar-drop li{
+    position: relative;
+    list-style-type: none;
+    width:100%;
+    color: white;
+    padding: 5px;
+    -webkit-tap-highlight-color: transparent; 
+    -webkit-user-select: none; 
+    user-select: none;
+}
+
+
+
+.navbar-drop li a{
+    transition: all 400ms ease-in-out;
+    margin-left: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 22px;
+}
+.navbar-drop li:nth-child(1){
+    margin-top: 12px;
+}
+.navbar-drop li:nth-child(4){
+    margin-bottom: 12px;
+}
+
+.navbar-orizontal{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height:100%;
+}
+.navbar-orizontal ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:clamp(20px,3vw,50px);
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+.navbar-orizontal ul li{
+    list-style-type: none;
+    font-size:clamp(16px,2.3vw,30px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-shadow: 0 0 20px black;
+}
+
+.navbar-orizontal ul li::before{
+    content: "";
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    height:0;
+    background-image: linear-gradient(to top,red,transparent);
+    width: 110%;
+    transition: all 400ms ease-in-out;
+}
+
+.navbar-orizontal ul li a{
+    color: white;
+    display: flex;
+    gap: 10px;
+    text-decoration: none;
+    transition: all 400ms ease-in-out;
+}
+
+.navbar-orizontal ul li:hover::before{
+    height: 60px;
+}
+.navbar-orizontal ul li:hover a{
+    scale: 1.1;
+}
+@media(max-width:749px){
+    .navbar-orizontal{
+        display: none;
+    }
+}
+.box{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    margin-right: 14px;
+    transform: rotateY(180deg);
+    padding: 3px;
+    border-radius:8px;
+}
+
+.linie1,
+.linie2,
+.linie3{
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition:all 250ms ease-in-out;
+}
+.linie2{
+    width: 80%;
+}
+.linie3{
+    width: 60%;
+}
+.linie1.go-left{
+    transform: translateX(350%);
+}
+.linie1.invisible{
+    opacity: 0;
+}
+
+
+
+.main-body{
+    width: 100%;
+    position: relative;
+    height: 90vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+#FundalMain{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+.main-body video{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    object-fit: cover;
+    opacity: 0.15;
+}
+.main-body h1{
+    z-index: 2;
+    color: white;
+    position: relative;
+    font-weight: 600;
+    text-align: center;
+    font-size: 28px;
+}
+.main-body h1 span{
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+}
+.main-body h3{
+    margin: 0;
+    z-index: 2;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    color: white;
+    position: relative;
+    font-weight: 500;
+    font-size: 16px;
+}
+.contactMain{
+    position: relative;
+    background-color: blue;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: 0 0 20px blue;
+    margin-top: 12px;
+}
+.contactMain p{
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+    
+}
+
+.portofoliu{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-portofoliu{
+    width: 90%;
+    height: 94%;
+    display: flex;
+}
+.card-portofoliu{
+    min-width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 28px 0;
+}
+.switcher{
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    width: 140px;
+    top: -4%;
+    left: 50%;
+    transform: translate(-50%,0);
+    background-color: rgb(0, 123, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 25px;
+    padding: 5px 5px;
+}
+.active-class{
+    border-radius: 100%;
+    border: 2px solid white;
+    position: absolute;
+    top: 0;
+    left: 1.5%;
+    width: 36px;
+    height: 90%;
+    transition: all 400ms ease-in-out;
+}
+.active-class.selected-desktop{
+    left: 1.5%;
+}
+.active-class.selected-mobile{
+    left: 74%;
+}
+.mobile,
+.desktop{
+    border-radius: 100%;
+    display: flex;
+    padding: 5px;
+    font-size: 22px;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-img{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow-x:scroll;
+    overflow-y: hidden;
+    align-items: center;
+    position: relative;
+    gap: 24px;
+    scroll-behavior: smooth;
+}
+.content-img::-webkit-scrollbar{
+    display: none;
+}
+.DesktopImg{
+    background-color: white;
+    min-width:100%;
+    height: 100%;
+    position: relative;
+    object-fit: cover;
+}
+.DesktopImg img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-position: 50% 0%;
+}
+
+.MobileImg{
+    background-color: rgb(255, 0, 0);
+    height: 100%;
+    min-width: 100%;
+}
+.MobileImg img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.info-card{
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    background-image: linear-gradient(to top,rgb(0, 0, 0),transparent);
+    gap: 2px;
+    opacity: 0;
+    transition:all 500ms ease-in-out;
+}
+.info-card h3{
+    margin-left: 10px;
+    position: relative;
+    color: white;
+}
+.info-card a{
+    margin-left: 10px;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 4px;
+}
+.card-portofoliu:hover > .info-card{
+    bottom: 0;
+}
+
+
+
+
+<div class="HowWeDoIt">
+    <img src="background-how.png" id="FundalHow">
+    <h1>De la Concept la Click</h1>
+    <div class="container-how">
+        <div class="cardHow">
+            <i class="fa-solid fa-phone-volume"></i>
+            <h3>Consultație Telefonică </h3>
+            <p>Discutăm despre afacerea ta, obiective și nevoi specifice.</p>
+        </div>
+        <div class="cardHow">
+            <i class="fa-solid fa-file-lines"></i>
+            <h3>Crearea unui Demo</h3>
+            <p> Îți prezentăm o variantă inițială pentru feedback și ajustări.</p>
+        </div>
+        <div class="cardHow">
+            <i class="fa-solid fa-laptop-code"></i>
+            <h3>Dezvoltarea Proiectului</h3>
+            <p>Construim site-ul, integrăm funcționalitățile necesare.</p>
+        </div>
+        <div class="cardHow">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Optimizare</h3>
+            <p> Asigurăm viteză, securitate și optimizare SEO pentru vizibilitate maximă.</p>
+        </div>
+        <div class="cardHow">
+            <i class="fa-solid fa-globe"></i>
+            <h3>Lansare</h3>
+            <p>Livrăm un produs final funcțional și performant, gata de utilizare.</p>
+        </div>
+    </div>
+</div>
+
+*{
+    margin: 0;
+}
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Poppins", serif;
+    background-color: rgb(255, 255, 255);
+}
+
+.header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    align-items: center;
+}
+
+.logo{
+    width: 185px;
+    font-weight: 700;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    color: white;
+}
+.navbar-drop{
+    width: 92%;
+    background-color: rgba(0, 8, 254, 0.5);
+    backdrop-filter: blur(5px);
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    height:0px;
+    overflow: hidden;
+    transform: translateX(-50%);
+    transition: all 500ms ease-in-out;
+    border-radius: 25px;
+    
+}
+.navbar-drop.active-nav{
+   height:150px;
+}
+.navbar-drop ul{
+    width: 100%;
+    padding: 0;
+}
+.navbar-drop li{
+    position: relative;
+    list-style-type: none;
+    width:100%;
+    color: white;
+    padding: 5px;
+    -webkit-tap-highlight-color: transparent; 
+    -webkit-user-select: none; 
+    user-select: none;
+}
+
+
+
+.navbar-drop li a{
+    transition: all 400ms ease-in-out;
+    margin-left: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 22px;
+}
+.navbar-drop li:nth-child(1){
+    margin-top: 12px;
+}
+.navbar-drop li:nth-child(4){
+    margin-bottom: 12px;
+}
+
+.navbar-orizontal{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height:100%;
+}
+.navbar-orizontal ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:clamp(20px,3vw,50px);
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+.navbar-orizontal ul li{
+    list-style-type: none;
+    font-size:clamp(16px,2.3vw,30px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-shadow: 0 0 20px black;
+}
+
+.navbar-orizontal ul li::before{
+    content: "";
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    height:0;
+    background-image: linear-gradient(to top,red,transparent);
+    width: 110%;
+    transition: all 400ms ease-in-out;
+}
+
+.navbar-orizontal ul li a{
+    color: white;
+    display: flex;
+    gap: 10px;
+    text-decoration: none;
+    transition: all 400ms ease-in-out;
+}
+
+.navbar-orizontal ul li:hover::before{
+    height: 60px;
+}
+.navbar-orizontal ul li:hover a{
+    scale: 1.1;
+}
+@media(max-width:749px){
+    .navbar-orizontal{
+        display: none;
+    }
+}
+.box{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    margin-right: 14px;
+    transform: rotateY(180deg);
+    padding: 3px;
+    border-radius:8px;
+}
+
+.linie1,
+.linie2,
+.linie3{
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition:all 250ms ease-in-out;
+}
+.linie2{
+    width: 80%;
+}
+.linie3{
+    width: 60%;
+}
+.linie1.go-left{
+    transform: translateX(350%);
+}
+.linie1.invisible{
+    opacity: 0;
+}
+
+
+
+.main-body{
+    width: 100%;
+    position: relative;
+    height: 90vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+#FundalMain{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+.main-body video{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    object-fit: cover;
+    opacity: 0.15;
+}
+.main-body h1{
+    z-index: 2;
+    color: white;
+    position: relative;
+    font-weight: 600;
+    text-align: center;
+    font-size: 28px;
+}
+.main-body h1 span{
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+}
+.main-body h3{
+    margin: 0;
+    z-index: 2;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    color: white;
+    position: relative;
+    font-weight: 500;
+    font-size: 16px;
+}
+.contactMain{
+    position: relative;
+    background-color: blue;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: 0 0 20px blue;
+    margin-top: 12px;
+}
+.contactMain p{
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+    
+}
+
+.portofoliu{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 40px;
+    position: relative;
+    padding-top: 40px;
+    overflow: hidden;
+    margin-top: 32px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+#FundalPortogolio{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+}
+.container-descriere-portofoliu{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+}
+.container-descriere-portofoliu h1{
+    color: white;
+    font-size: 36px;
+}
+.container-descriere-portofoliu p{
+    color: white;
+    font-size: 16px;
+    line-height: 1.5;
+    width: 92%;
+}
+.container-portofoliu{
+    width: 94%;
+    height: 94%;
+    display: flex;
+}
+.card-portofoliu{
+    min-width: 100%;
+    height: 525px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.content-card-portofoliu{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.mobile,
+.desktop{
+    border-radius: 100%;
+    display: flex;
+    padding: 5px;
+    font-size: 22px;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-img{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow-x:scroll;
+    padding-bottom: 28px;
+    align-items: center;
+    position: relative;
+    gap: 24px;
+    scroll-behavior: smooth;
+}
+.content-img::-webkit-scrollbar{
+    display: none;
+}
+.DesktopImg{
+    background-color: white;
+    min-width:100%;
+    height: 100%;
+    position: relative;
+    object-fit: cover;
+}
+.DesktopImg img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-position: 50% 0%;
+}
+
+.MobileImg{
+    height: 50%;
+    width: 42%;
+    position: absolute;
+    bottom: 4px;
+    right: 3px;
+}
+.MobileImg img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.info-card{
+    position: absolute;
+    bottom:-25%;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 100%;
+    height:150px;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    background-image: linear-gradient(to top,rgb(0, 0, 0),transparent);
+    gap: 2px;
+    transition:all 450ms ease-in-out;
+    overflow: hidden;
+}
+.info-card h3{
+    font-size: clamp(16px,4vw,24px);
+    margin-left: 10px;
+    margin-bottom: 8px;
+}
+.info-card i{
+    color: white;
+    font-size: 20px;
+    rotate: 315deg;
+    margin-bottom: 8px;
+}
+
+.info-card a{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    color: white;
+    gap: 12px;
+}
+.content-card-portofoliu:hover > .info-card{
+    bottom:0%;
+    transform: translate(-50%,0);
+}
+
+.HowWeDoIt{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+    padding: 50px 0;
+    background-image: linear-gradient(45deg,blue,black);
+    /*
+    --mask:
+    radial-gradient(34.99px at 50% 48px,#000 99%,#0000 101%) calc(50% - 60px) 0/120px 100%,
+    radial-gradient(34.99px at 50% -18px,#0000 99%,#000 101%) 50% 30px/120px 100% repeat-x;
+  -webkit-mask: var(--mask);
+          mask: var(--mask) */
+}
+#FundalHow{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: contrast(0.9);
+    opacity: 0;
+}
+.HowWeDoIt h1{
+    position: relative;
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+.container-how{
+    width: 98%;
+   display: flex;
+   flex-direction: column;
+    position: relative;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 0;
+}
+.cardHow{
+    background-image: linear-gradient(45deg,blue 10%,black 30%);
+    border-radius: 25px;
+    background-image: url("background-how.png");
+    background-position: center;
+    background-size: cover;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+   width: 65%;
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+.cardHow::before{
+    content: "";
+    top:0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(1px);
+}
+.cardHow i{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 28px;
+    color: rgb(255, 255, 255);
+}
+
+.cardHow h3{
+    position: relative;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 26px;
+}
+.cardHow p{
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    position: relative;
+    font-size: 20px;
+    width: 100%;
+}
+.cardHow:nth-child(1){
+}
+.cardHow:nth-child(2){
+}
+.cardHow:nth-child(3){
+}
+.cardHow:nth-child(4){
+}
+.cardHow:nth-child(5){
+    grid-column: 1/3;
+}
